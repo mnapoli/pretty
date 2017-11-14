@@ -1,0 +1,10 @@
+{
+    "name": "mnapoli/pretty",
+    "description": "Run all code formatting tools with one command: pretty",
+    "keywords": ["pretty", "formatting", "psr-1", "psr-2", "code", "style", "coding", "standard"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": "^5.5|^7.0"
+    }
+}

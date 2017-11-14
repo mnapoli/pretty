@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+ini_set('display_errors', '1');
+error_reporting(E_ALL);
+
+// TODO: CI option: no cache
+// TODO: "fix" option
+
+const PHP_CS_FIXER_COMMAND = 'php-cs-fixer fix --dry-run --allow-risky=yes --using-cache=no --diff';
+const PHP_CODE_SNIFFER_COMMAND = 'phpcs';
+const DEFAULT_COMMAND = 'phpcs --standard=PSR2 --extensions=php --ignore=vendor/* .';
+
+$command = '';
+
+// Detect which tool to run
+if (file_exists('phpcs.xml') || file_exists('phpcs.xml.dist')) {
+    echo "CodeSniffer configuration file found, running CodeSniffer\n";
+    $command = PHP_CODE_SNIFFER_COMMAND;
+} elseif (file_exists('.php_cs') || file_exists('.php_cs.dist')) {
+    echo "PHP-CS-Fixer configuration file found, running PHP-CS-Fixer\n";
+    $command = PHP_CS_FIXER_COMMAND;
+} else {
+    echo "No configuration file found, running PHP CodeSniffer with PSR-2\n";
+    $command = DEFAULT_COMMAND;
+}
+
+// Run the analysis
+passthru($command, $exitCode);
+
+exit($exitCode);
