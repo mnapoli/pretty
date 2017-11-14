@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 // TODO: CI option: no cache
 // TODO: "fix" option
 
-const PHP_CS_FIXER_COMMAND = 'php-cs-fixer fix --dry-run --allow-risky=yes --using-cache=no --diff';
+const PHP_CS_FIXER_COMMAND = 'php-cs-fixer fix --dry-run --allow-risky=yes --diff';
 const PHP_CODE_SNIFFER_COMMAND = 'phpcs';
 const DEFAULT_COMMAND = 'phpcs --standard=PSR2 --extensions=php --ignore=vendor/* .';
 
