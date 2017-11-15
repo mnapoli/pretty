@@ -12,7 +12,7 @@ pretty
 
 *Pretty* will detect the configuration file that exist in the current directory and will run the correct tool.
 
-If no configuration file exist, *Pretty* will run PHP-CS-Fixer with PSR-2 by default.
+If no configuration file exist, *Pretty* will run PHP CodeSniffer with PSR-2 by default.
 
 ## Installation
 
