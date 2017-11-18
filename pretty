@@ -29,13 +29,16 @@ $command = '';
 
 // Detect which tool to run
 if (file_exists('phpcs.xml') || file_exists('phpcs.xml.dist')) {
-    echo "CodeSniffer configuration file found, running CodeSniffer\n";
+    echo "PHP CodeSniffer configuration file found, running CodeSniffer\n";
+    assertPhpCodeSnifferIsInstalled();
     $command = $commands['phpcs'];
 } elseif (file_exists('.php_cs') || file_exists('.php_cs.dist')) {
     echo "PHP-CS-Fixer configuration file found, running PHP-CS-Fixer\n";
+    assertPhpCsFixerIsInstalled();
     $command = $commands['php-cs-fixer'];
 } else {
     echo "No configuration file found, running PHP CodeSniffer with PSR-2\n";
+    assertPhpCodeSnifferIsInstalled();
     $command = $commands['default'];
 }
 
@@ -43,3 +46,31 @@ if (file_exists('phpcs.xml') || file_exists('phpcs.xml.dist')) {
 passthru($command, $exitCode);
 
 exit($exitCode);
+
+function commandExists($command)
+{
+    $return = shell_exec('which ' . escapeshellarg($command));
+    return !empty($return);
+}
+
+function assertPhpCodeSnifferIsInstalled()
+{
+    if (!commandExists('phpcs')) {
+        echo <<<INSTRUCTIONS
+ERROR: PHP CodeSniffer does not seem to be installed because the 'phpcs' program cannot be found.
+You can install it by following the instructions here: https://github.com/squizlabs/PHP_CodeSniffer#installation
+INSTRUCTIONS;
+        exit(1);
+    }
+}
+
+function assertPhpCsFixerIsInstalled()
+{
+    if (!commandExists('php-cs-fixer')) {
+        echo <<<INSTRUCTIONS
+ERROR: PHP-CS-Fixer does not seem to be installed because the 'php-cs-fixer' program cannot be found.
+You can install it by following the instructions here: https://github.com/FriendsOfPHP/PHP-CS-Fixer#installation
+INSTRUCTIONS;
+        exit(1);
+    }
+}
