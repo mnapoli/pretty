@@ -10,9 +10,15 @@ Now it's easy, simply run:
 pretty
 ```
 
-*Pretty* will detect the configuration file that exist in the current directory and will run the correct tool.
+*Pretty* will detect the configuration file that exist in the current directory and will run the correct tool. If no configuration file exist, *Pretty* will run PHP CodeSniffer with PSR-2 by default.
 
-If no configuration file exist, *Pretty* will run PHP CodeSniffer with PSR-2 by default.
+If errors are found, simply run:
+
+```
+pretty fix
+```
+
+Again, *Pretty* will run the appropriate tool (`php-cs-fixer` or `phpcbf`) to fix as many errors as possible in your code.
 
 ## Installation
 
@@ -34,13 +40,19 @@ composer global update mnapoli/pretty
 
 ## Usage
 
-Running pretty is as simple as running:
+Running an analysis is as simple as running:
 
 ```
 pretty
 ```
 
-In case you are running it in CI, you might want to run:
+This command will not change any code. To fix errors reported by this command, simply run:
+
+```
+pretty fix
+```
+
+In case you are running the analyses in CI you might want to run:
 
 ```
 pretty ci
