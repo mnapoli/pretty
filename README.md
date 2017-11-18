@@ -1,4 +1,4 @@
-**A single command to run PHP code formatters like CodeSniffer or PHP-CS-Fixer.**
+**A single CLI command with sane defaults to simplify CodeSniffer and PHP-CS-Fixer.**
 
 ---
 
