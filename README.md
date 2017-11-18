@@ -25,3 +25,19 @@ composer global require mnapoli/pretty
 *Pretty* comes with no dependencies so it should not bring any conflict in Composer.
 
 You can also install it as a local dependency of your project with `composer require mnapoli/pretty`. In that case you can start the tool with `vendor/bin/pretty`.
+
+## Usage
+
+Running pretty is as simple as running:
+
+```
+pretty
+```
+
+In case you are running it in CI, you might want to run:
+
+```
+pretty ci
+```
+
+This will disable the caching option of PHP-CS-Fixer or CodeSniffer (because the cache will not be kept in CI).
