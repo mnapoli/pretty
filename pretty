@@ -32,6 +32,17 @@ $commands = [
 ];
 
 $task = isset($argv[1]) ? $argv[1] : 'default';
+
+if ($task === 'help') {
+    help();
+    exit(0);
+}
+if (!isset($commands[$task])) {
+    echo "Unrecognized command '$task'\n";
+    help();
+    exit(1);
+}
+
 $commands = $commands[$task];
 
 $command = '';
@@ -88,4 +99,15 @@ You can install it by following the instructions here: https://github.com/Friend
 INSTRUCTIONS;
         exit(1);
     }
+}
+
+function help()
+{
+    echo <<<'HELP'
+Available commands:
+- pretty: runs an analysis (will not fix the code)
+- pretty fix: fix as many errors as possible in the code
+- pretty ci: runs an analysis in a continuous integration environment
+- pretty help: displays this help
+HELP;
 }
