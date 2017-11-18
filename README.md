@@ -26,6 +26,12 @@ composer global require mnapoli/pretty
 
 You can also install it as a local dependency of your project with `composer require mnapoli/pretty`. In that case you can start the tool with `vendor/bin/pretty`.
 
+You will be able to update to new versions by running:
+
+```
+composer global update mnapoli/pretty
+```
+
 ## Usage
 
 Running pretty is as simple as running:
