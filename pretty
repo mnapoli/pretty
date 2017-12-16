@@ -48,7 +48,7 @@ $commands = $commands[$task];
 $command = '';
 
 // Detect which tool to run
-if (file_exists('phpcs.xml') || file_exists('phpcs.xml.dist')) {
+if (file_exists('.phpcs.xml') || file_exists('phpcs.xml') || file_exists('.phpcs.xml.dist') || file_exists('phpcs.xml.dist')) {
     echo "PHP CodeSniffer configuration file found, running CodeSniffer\n";
     $command = $commands['phpcs'];
     $program = explode(' ', $command, 1)[0];
