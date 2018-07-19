@@ -59,3 +59,7 @@ pretty ci
 ```
 
 This will disable the caching option of PHP-CS-Fixer or CodeSniffer (because the cache will not be kept in CI).
+
+## Hosted continuous integration
+
+If you are using `pretty` in your daily development workflow you may be interested in [PrettyCI.com](https://prettyci.com/), the SaaS version of `pretty`.
