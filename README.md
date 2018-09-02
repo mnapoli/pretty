@@ -1,3 +1,5 @@
+[![](https://hc4rcprbe1.execute-api.eu-west-1.amazonaws.com/dev?name=mnapoli/pretty)](https://prettyci.com/)
+
 **A single CLI command with sane defaults to simplify CodeSniffer and PHP-CS-Fixer.**
 
 ---
