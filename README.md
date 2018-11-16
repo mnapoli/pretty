@@ -32,7 +32,7 @@ composer global require mnapoli/pretty
 
 *Pretty* comes with no dependencies so it should not bring any conflict in Composer.
 
-You can also install it as a local dependency of your project with `composer require mnapoli/pretty`. In that case you can start the tool with `vendor/bin/pretty`.
+You can also install it as a local dependency of your project with `composer require --dev mnapoli/pretty`. In that case you can start the tool with `vendor/bin/pretty`.
 
 You will be able to update to new versions by running:
 
