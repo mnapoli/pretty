@@ -84,7 +84,11 @@ exit($exitCode);
 
 function commandExists($command)
 {
-    $return = shell_exec('which ' . escapeshellarg($command));
+    if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        $return = shell_exec('where ' . escapeshellarg($command));
+    } else {
+        $return = shell_exec('which ' . escapeshellarg($command));        
+    }
     return !empty($return);
 }
 
