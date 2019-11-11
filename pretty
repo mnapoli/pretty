@@ -3,6 +3,7 @@
 
 ini_set('display_errors', '1');
 error_reporting(E_ALL);
+putenv(join("", array("PATH=vendor/bin", PATH_SEPARATOR, getenv("PATH"))));
 
 $commands = [
     /**
