@@ -27,8 +27,8 @@ $commands = [
      */
     'ci' => [
         'php-cs-fixer' => 'php-cs-fixer fix --dry-run --allow-risky=yes --diff --using-cache=no',
-        'phpcs' => 'phpcs --no-cache',
-        'default' => 'phpcs --standard=PSR2 --extensions=php --ignore="vendor/*" --no-cache .',
+        'phpcs' => 'phpcs --no-cache --no-colors',
+        'default' => 'phpcs --standard=PSR2 --extensions=php --ignore="vendor/*" --no-cache --no-colors .',
     ],
 ];
 
@@ -88,7 +88,7 @@ function commandExists($command)
     if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
         $return = shell_exec('where ' . escapeshellarg($command));
     } else {
-        $return = shell_exec('which ' . escapeshellarg($command));        
+        $return = shell_exec('which ' . escapeshellarg($command));
     }
     return !empty($return);
 }
