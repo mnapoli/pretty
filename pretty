@@ -52,7 +52,7 @@ $command = '';
 if (file_exists('.phpcs.xml') || file_exists('phpcs.xml') || file_exists('.phpcs.xml.dist') || file_exists('phpcs.xml.dist')) {
     echo "PHP CodeSniffer configuration file found, running CodeSniffer with version\n";
     $command = $commands['phpcs'];
-    $program = explode(' ', $command, 1)[0];
+    $program = explode(' ', $command, 2)[0];
     assertPhpCodeSnifferIsInstalled($program);
 
     passthru($program." --version");
